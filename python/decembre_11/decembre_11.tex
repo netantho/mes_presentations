@@ -105,7 +105,7 @@ Python est un langage à typage fort dynamique.
  \item \underline{\href{http://docs.python.org/}{Documentation officielle}}
  \item \underline{\href{http://diveintopython.adrahon.org/}{Plongez au c\oe{}ur de Python}}
  \item \underline{\href{http://www.afpy.org/}{AFPY Association Francophone Python}}
- \item \underline{\href{http://feldboris.alwaysdata.net/blog/pages/presentations/}{Présentations de Boris Feld, cette présentation en est inspirée}}
+ \item \underline{\href{http://feldboris.alwaysdata.net/blog/pages/presentations/}{Présentation de Boris Feld, cette présentation en est inspirée}}
  \item \underline{\href{http://www.biologeek.com/bonnes-pratiques,conferences,django,python,traduction/bonnes-pratiques-et-astuces-python/}{Les bonnes pratiques}}
  \item \underline{\href{http://www.python.org/dev/peps/}{PEP Python Enhancement Proposals}}
 \end{itemize}
@@ -528,14 +528,14 @@ $ python cli.py INTech Powa
 >>> hello_world()
 Hello World!
 >>> def fonction(arg1, arg2, arg3 = "val3", arg4 = "val4"):
-...     print arg1, arg2, arg3, arg4
+...      return (arg1, arg2, arg3, arg4)
 ... 
 >>> fonction("val1", "val2")
-val1 val2 val3 val4
+('val1', 'val2', 'val3', 'val4')
 >>> fonction(arg2 = "val1", arg1 = "val2")
-val2 val1 val3 val4
+('val2', 'val1', 'val3', 'val4')
 >>> fonction("val1", "val2", arg4 = "val1")
-val1 val2 val3 val1
+('val1', 'val2', 'val3', 'val1')
 \end{lstlisting}
 \end{frame}
 
@@ -644,15 +644,16 @@ On peut aussi hériter de méthodes de la même façon
 \end{frame}
 
 \begin{frame}[fragile]{Surcharge d'opérateurs}
-Définir les opérateurs entre des objets de même types. Ils faut définir des méthodes spéciales dans les classes :
+Définir les opérateurs entre des objets de même types. Il faut définir des méthodes spéciales dans les classes qui doivent retourner des booléens :
 \begin{itemize}
- \item object.\_\_lt\_\_(self, other) : $<$
- \item object.\_\_le\_\_(self, other) : $<=$
- \item object.\_\_eq\_\_(self, other) : $==$
- \item object.\_\_ne\_\_(self, other) : $!=$
- \item object.\_\_gt\_\_(self, other) : $>$
- \item object.\_\_ge\_\_(self, other) : $>=$
+ \item object.\_\_lt\_\_(self, b) : $a < b$
+ \item object.\_\_le\_\_(self, b) : $a <= b$
+ \item object.\_\_eq\_\_(self, b) : $a == b$
+ \item object.\_\_ne\_\_(self, b) : a $!=$ b
+ \item object.\_\_gt\_\_(self, b) : $a > b$
+ \item object.\_\_ge\_\_(self, b) : $a >= b$
 \end{itemize}
+On a aussi des méthodes spéciales pour les opérations arithmétiques.
 \end{frame}
 
 
@@ -724,7 +725,7 @@ beuh !
 \begin{frame}[fragile]{Modularité - Sélection fine}
 Je ne veux qu'une variable, fonction ou classe
 \begin{lstlisting}
->>> from pack.text import f
+>>> from pack.test import f
 >>> pack
 NameError: name 'pack' is not defined
 >>> f
