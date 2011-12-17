@@ -42,7 +42,7 @@ language=python
 \begin{frame}{Quelques informations}
 \begin{itemize}
  \item Langage interprété, interpréteur interactif avec la commande \textit{python}
- \item \href{http://www.tiobe.com/index.php/content/paperinfo/tpci/index.html}{8$^{\text{ème}}$ langage le plus utilisé}
+ \item \underline{\href{http://www.tiobe.com/index.php/content/paperinfo/tpci/index.html}{8$^{\text{ème}}$ langage le plus utilisé}}
  \item Utilisé par la NASA, Google, Battlefield 2, ...
  \item Deux branches : 2.x (actuellement 2.7.2) depuis 2001 et 3.x (actuellement 3.2.2) depuis 2009. Quand ce n'est pas précisé, je vais travailler ici avec \textbf{Python 2.x}
  \item Indentation des blocs avec espaces obligatoire
@@ -93,7 +93,7 @@ Python est un langage à typage fort dynamique.
 \begin{itemize}
  \item Les types sont déterminés à l'exécution
  \item La compilation et l'éxecution détectent les erreurs de typage
- \item Pas de conversion implicite de types (!= PHP)
+ \item Pas de conversion implicite de types, sauf un peu pour les nombres (!= PHP)
 \end{itemize}
 
 \end{frame}
@@ -102,25 +102,22 @@ Python est un langage à typage fort dynamique.
 
 \begin{frame}[fragile]{Je veux de la doc !}
 \begin{itemize}
- \item \href{http://docs.python.org/}{Documentation officielle}
- \item \href{http://diveintopython.adrahon.org/}{Plongez au c\oe{}ur de Python}
- \item \href{http://www.afpy.org/}{AFPY Association Francophone Python}
- \item \href{http://feldboris.alwaysdata.net/blog/pages/presentations/}{Présentations de Boris Feld dont cette présentation est inspirée}
- \item \href{http://www.biologeek.com/bonnes-pratiques,conferences,django,python,traduction/bonnes-pratiques-et-astuces-python/}{Les bonnes pratiques}
- \item \href{http://www.python.org/dev/peps/}{PEP Python Enhancement Proposals}
+ \item \underline{\href{http://docs.python.org/}{Documentation officielle}}
+ \item \underline{\href{http://diveintopython.adrahon.org/}{Plongez au c\oe{}ur de Python}}
+ \item \underline{\href{http://www.afpy.org/}{AFPY Association Francophone Python}}
+ \item \underline{\href{http://feldboris.alwaysdata.net/blog/pages/presentations/}{Présentations de Boris Feld, cette présentation en est inspirée}}
+ \item \underline{\href{http://www.biologeek.com/bonnes-pratiques,conferences,django,python,traduction/bonnes-pratiques-et-astuces-python/}{Les bonnes pratiques}}
+ \item \underline{\href{http://www.python.org/dev/peps/}{PEP Python Enhancement Proposals}}
 \end{itemize}
 
 \begin{lstlisting}
 >>> help(fonction)
 >>> object.__dict__
 \end{lstlisting}
-
-
 \end{frame}
 
 
 \section{Les bases}
-
 \begin{frame}[fragile]{Types de variables}
 \begin{lstlisting}[multicols=2]
 >>> type(42)
@@ -155,7 +152,7 @@ Conversion de types (typecasting) avec \textit{int(foo)}, \textit{str(foo)}, \do
 >>> "foo "+str(42)+" bar"
 'foo 42 bar'
 >>> couleurs = ['rouge', 'bleu', 'vert', 'jaune']
->>> ' '.join(couleurs)
+>>> ' '.join(couleurs) # pour liste
 'rouge bleu vert jaune'
 >>> x = 'string sur plusieurs \
 >>> ... lignes'
@@ -180,7 +177,7 @@ INTech
 \begin{frame}[fragile]{Opérations arithmétiques}
 \begin{itemize}
  \item Opérateurs : + - * / \%
- \item Une opération sur deux nombres dans deux ensemble différents donne le résultat dans le "grand" ensemble
+ \item Une opération sur deux nombres dans deux ensembles différents donne le résultat dans le plus "grand" (au sens de l'inclusion) ensemble
 \end{itemize}
 
 \begin{lstlisting}
@@ -228,7 +225,7 @@ Valeurs considérées comme fausses :
 % Structures de données
 
 \begin{frame}[fragile]{Listes}
-Structure ordonnée de taille dynamique contenant une collection d'objets de types différents
+Structure ordonnée de taille dynamique contenant une collection d'objets de types qui peuvent être différents
 \begin{lstlisting}
 >>> x = []
 >>> type(x)
@@ -271,7 +268,7 @@ Structure ordonnée de taille dynamique contenant une collection d'objets de typ
 \end{frame}
 
 \begin{frame}[fragile]{Tuples}
-Comparable aux liste à la différence que les tuples ne sont pas modifiables
+Comparables aux listes à la différence que les valeurs des tuples ne sont pas modifiables
 \begin{lstlisting}[multicols=3]
 >>> x = (1,2)
 >>> x
@@ -284,9 +281,11 @@ Comparable aux liste à la différence que les tuples ne sont pas modifiables
 (1,)
 >>> x[1::2]
 (2,)
+>>> # pas tuple
 >>> x = (1)
 >>> x
 1
+>>> # tuple
 >>> x = (1,)
 >>> x
 (1,)
@@ -337,11 +336,11 @@ assignment
 
 
 \begin{frame}[fragile]{Dictionnaires}
-Accès aux éléments non pas par des index mais pas des clés (chaîne de caractères, nombre, tuple), genre de "tableau associatif".\\
+Accès aux éléments non pas par des index mais par des clés (chaîne de caractères, tuple, ...), genre de "tableau associatif".\\
 \begin{itemize}
  \item Clés non modifiables
- \item structure non ordonnée
- \item Un clé pointe vers une seule valeur (qui peut néanmoins être une liste, un tuple ou un dictionnaire)
+ \item Structure non ordonnée
+ \item Une clé pointe vers une seule valeur (qui peut néanmoins être une liste, un tuple ou un dictionnaire)
 \end{itemize}
 \end{frame}
 
@@ -387,7 +386,7 @@ Sont itérables
 \begin{itemize}
  \item Les chaînes de caractères
  \item Les tuples, listes et dictionnaires
- \item Les fichiers
+ \item Les fichiers (sur les lignes)
 \end{itemize}
 
 \textbf{Attention}, sur les dictionnaires, les éléments itérés sont les clés alors que pour listes et tuples ce sont les valeurs
@@ -399,7 +398,7 @@ Sont itérables
 >>> ch = 'coucou'
 >>> 'o' in ch
 True
->>> map(lambda x: x+'a', str)
+>>> map(lambda x: x+'a', ch)
 ['ca', 'oa', 'ua', 'ca', 'oa', 'ua']
 >>> dict = {'c': 'b', 'b': 'c', 'a': 'd'}
 >>> sorted(dict)
@@ -453,7 +452,7 @@ On remarquera \textit{elif} et les :
 3
 \end{lstlisting}
 
- \item "Classique"
+ \item utilisation "Classique"
 \begin{lstlisting}[multicols=2]
 >>> range(5)
 [0, 1, 2, 3, 4]
@@ -516,8 +515,8 @@ Vous suivez encore ? oui
 \begin{lstlisting}[language=bash]
 $ echo "import sys" >> cli.py
 $ echo "print sys.argv" >> cli.py
-$ python cli.py INTech Powa \!\!
-['cli.py', 'INTech', 'Powa', '!!']
+$ python cli.py INTech Powa
+['cli.py', 'INTech', 'Powa']
 \end{lstlisting}
 \end{frame}
 
@@ -560,6 +559,8 @@ for elem in monjson['results']:
     print elem['from_user_name']+" le "+elem['created_at']
     print elem['text']+"\n"
 \end{lstlisting}
+
+Tadam ! Rapide, non ?
 \end{frame}
 
 
@@ -640,44 +641,6 @@ Le \textit{constructeur} est la méthode qui est appelée à la création d'un o
 'A'
 \end{lstlisting}
 On peut aussi hériter de méthodes de la même façon
-\end{frame}
-
-\begin{frame}[fragile]{Polymorphisme}
-\begin{lstlisting}[multicols=2, basicstyle=\tiny]
-class Forme:
-  def __init__(self):
-    self.couleur = ""
-  def changer_couleur(self, c):
-    self.couleur = c
-
-class Carre(Forme):
-  def __init__(self):
-    Forme.__init__(self)
-    self.x1 = 0
-    self.x2 = 0
-    self.y1 = 0
-    self.y2 = 0
-  def deplacer(self, dx, dy):
-    self.x1 += dx
-    self.x2 += dx
-    self.y1 += dy
-    self.y2 += dy
-
-class Cercle(Forme):
-  def __init__(self):
-    Forme.__init__(self)
-    self.x = 0
-    self.y = 0
-    self.rayon = 0
-  def deplacer(self, dx, dy):
-    self.x += dx
-    self.y += dy
-
-carre = Carre()
-carre.deplacer(5, 10)
-cercle = Cercle()
-cercle.deplacer(2, 3)
-\end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]{Surcharge d'opérateurs}
@@ -787,8 +750,8 @@ Des tests ? Pourquoi faire ?
 
 \begin{frame}[fragile]{Nose}
 Utilisation du module nose\\
-\href{http://readthedocs.org/docs/nose/en/latest/}{Doc officielle (en)}\\
-\href{http://ivory.idyll.org/articles/nose-intro.html}{Didacticiel (en)}
+\underline{\href{http://readthedocs.org/docs/nose/en/latest/}{Doc officielle (en)}}\\
+\underline{\href{http://ivory.idyll.org/articles/nose-intro.html}{Didacticiel (en)}}
 \begin{lstlisting}[language=bash]
 $ sudo apt-get install python-nose
 \end{lstlisting}
@@ -924,7 +887,7 @@ De nombreux d'autres problèmes sont à gérer :
 \section{La liaison série}
 
 \begin{frame}[fragile]{socat}{OMG J'émule une liaison série}
-\href{http://pyserial.sourceforge.net/}{Le site officiel (en)}
+\underline{\href{http://pyserial.sourceforge.net/}{Le site officiel (en)}}
 \begin{lstlisting}[language=bash]
 $ sudo apt-get install socat
 $ sudo apt-get install python-serial
@@ -963,7 +926,7 @@ Ouvrir deux autres terminaux (dans le même dossier) et lancer \textit{\$ sudo p
 \begin{frame}[fragile]{Présentation de PyPy}
 PyPy est une implémentation de python (2.7.1 pour l'instant) destinée à accélérer, en moyenne 3x plus vite, l'éxecution d'un programme en python (\textbf{Attention} : il faut tester au cas par cas)\\
 C'est un programme python (!!) qui fait de la compilation à la volée (JIT Compilation : Just-In-Time Compilation)\\
-\href{http://pypy.org/download.html}{Télécharger PyPy}\\
+\underline{\href{http://pypy.org/download.html}{Télécharger PyPy}}\\
 Choisir "JIT Compiler" version\\
 Dézipper le tout, le programme est dans pypy-1.7/bin/pypy\\
 Créer un lien symbolique de pypy (avec le chemin absolu) vers /usr/bin
@@ -984,7 +947,7 @@ Créer un lien symbolique de pypy (avec le chemin absolu) vers /usr/bin
 \section{Python 3}
 
 \begin{frame}[fragile]{Print}
-\href{http://docs.python.org/release/3.0.1/whatsnew/3.0.html}{doc}
+\underline{\href{http://docs.python.org/release/3.0.1/whatsnew/3.0.html}{doc}}
 
 
 \begin{lstlisting}[language=python]
@@ -1047,7 +1010,7 @@ Des changements introduits dans Python 3.x sont peu à peu introduits dans Pytho
 \end{frame}
 
 \begin{frame}{Ce qui n'a pas été abordé}
-\href{http://feldboris.alwaysdata.net/blog/pages/presentations/pythonutbm}{Voir la superbe présentation de Boris Feld}
+\underline{\href{http://feldboris.alwaysdata.net/blog/pages/presentations/pythonutbm}{Voir la superbe présentation de Boris Feld}}
 \begin{itemize}
  \item Gestion des exceptions
  \item Les ensembles
