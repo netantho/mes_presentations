@@ -499,22 +499,21 @@ On remarquera \textit{elif} et les :
 
 \begin{frame}[fragile]{Exercice}
 \begin{enumerate}
- \item Créer un tuple contenant 'voiture', 'avion', 'pied'
- \item En utilisant une boucle et une condition, afficher le résultat suivant
+ \item Créer un tuple contenant 'voiture', 'camion', 'avion', 'pied'
+ \item En utilisant une boucle et une condition, afficher les mots contenant la lettre a
 \end{enumerate}
 \begin{lstlisting}
-voiture
+camion
 avion
 \end{lstlisting}
 \pause
 
 \begin{lstlisting}
->>> t = ('voiture', 'avion', 'pied')
->>> for i in t:
-...      if i != 'pied':
-...           print i
-... 
-voiture
+>>> for e in t:
+...    if 'a' in e:
+...       print e
+...  
+camion
 avion
 \end{lstlisting}
 
