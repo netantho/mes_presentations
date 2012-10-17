@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+    <title>Contacter Lady Java</title>
+    <meta http-env="Content-Type" type="text/html" charset="utf-8" />
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/screen.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <!-- Nécessaire pour responsive-design dans navbar -->
+    <script src="assets/js/jquery-1.7.2.js" /></script>
+    <script src="assets/js/bootstrap.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="navbar navbar-inverse">
+            <div class="navbar-inner">
+                <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                </a>
+
+                <a class="brand" href="index.html">Page perso de Lady Java</a>
+                <div class="nav-collapse collapse">
+                    <ul class="nav">
+                        <li><a href="index.html">Lady Java</a></li>
+                    </ul>
+                </div>
+                <a href="#" class="btn btn-primary pull-right"><i class="icon-white icon-envelope"></i> Contact</a>
+            </div>
+        </div>
+        <div class="span12">
+            <form class="form-horizontal">
+                <legend>Contact</legend>
+                <div class="control-group">
+                    <label class="control-label" for="inputFirstname">Prénom</label>
+                    <div class="controls">
+                        <input type="text" id="inputFirstname" placeholder="Prénom">
+                    </div>
+                </div>
+            <div class="control-group">
+                <label class="control-label" for="inputLastname">Nom</label>
+                <div class="controls">
+                    <input type="text" id="inputLastname" placeholder="Nom">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputIcon">Adresse E-mail</label>
+                <div class="controls">
+                    <div class="input-prepend">
+                        <span class="add-on"><i class="icon-envelope"></i></span>
+                        <input class="span2" id="inputIcon" type="text" placeholder="Adresse E-mail">
+                    </div>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputText">Message</label>
+                <div class="controls">
+                    <textarea rows="3" id="inputText" placeholder="Votre message"></textarea>
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <button type="submit" class="btn btn-success">Envoyer</button>
+                </div>
+            </div>
+        </form>
+        </div>
+        <hr>
+        <footer>
+            <div class="centered">
+                <i class="icon-user"></i> Club Code 2012
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
